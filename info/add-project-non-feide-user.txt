@@ -1,0 +1,66 @@
+Add a project owned by a user who is not FEIDE
+
+============ in GOLD: ===========
+
+Logi in with GUI in 
+
+https://gold.galaxy-prod01.hpc.uio.no
+username : root
+pass : ask Nikolay
+
+
+
+1) Create Organization
+
+name = user's email
+
+2) Create user
+
+name = user's email
+CommonName = the real name
+Email = user's email
+
+
+3) Create new project
+
+ATTENTION! check which is the last lp project name and increment it
+/opt/gold/bin/glsproject --show Name
+
+name = lpXX (incremented!)
+active = true
+Organization = user's email
+Desciption = real name of the project (add "manually added")
+Users = select users's name
+
+
+4) Create New Account
+
+name = lpXX (the project code)
+Description = account for lpXX project
+Projects = select lpXX
+Users = check MEMBERS and user's email
+
+Make deposit (in Accounts block)
+
+Account_Id = select the the respective ID in the table
+Account Amount = select Hrs and add n of hours
+Set start date = YYYY-MM-DD
+Set end date  = YYYY-MM-DD
+
+
+============ in GALAXY tree ============ 
+
+go to /home/galaxy/external_dbs/project_managers.txt
+
+and add user's email : no spaces before!! one email per line!!
+
+
+============ in GALAXY  ============ 
+
+Notify the user by email that they shall go to lifeportal.uio.no and select Register in the User menu.
+
+They shall register with the same email as the one used in GOLD !! They select the password themselves
+
+After they log in, they can go to ProjectAdmin tab and add new users via "Create new user button" or just add users from the list of "Manage users" link
+
+
