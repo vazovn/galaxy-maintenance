@@ -2,4 +2,4 @@
 
 source /home/galaxy/galaxy_mantenance_scripts_and_info/maintenance_local_env.sh
 source /home/galaxy/galaxy/.venv/bin/activate
-sudo -E ./lifeportal_usage_report.py
+./lifeportal_usage_report.py
