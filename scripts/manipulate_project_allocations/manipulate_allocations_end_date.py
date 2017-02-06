@@ -22,7 +22,7 @@ if dry_run != 'yes' and dry_run != 'no' :
 
 
 ## Get the account id
-command = "sudo /opt/gold/bin/glsalloc --show Id,EndTime | grep %s" % old_end_date
+command = "sudo  -u gold /opt/gold/bin/glsalloc --show Id,EndTime | grep %s" % old_end_date
 p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 p.wait()
 
@@ -42,14 +42,14 @@ if dry_run == 'yes' :
             
             
 for allocId in endDateList :
-         command1 = "sudo /opt/gold/bin/gchalloc -e %s -i %s" % (new_end_date, allocId)
+         command1 = "sudo -u gold /opt/gold/bin/gchalloc -e %s -i %s" % (new_end_date, allocId)
          p = subprocess.Popen(command1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
          p.wait()
         
 
 ## Final check of changes 
 for allocId in endDateList :
-        command2 = "sudo /opt/gold/bin/glsalloc --show Id,EndTime -i %s | grep %s" % (allocId,new_end_date)
+        command2 = "sudo  -u gold /opt/gold/bin/glsalloc --show Id,EndTime -i %s | grep %s" % (allocId,new_end_date)
         p = subprocess.Popen(command2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         p.wait()
         

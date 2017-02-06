@@ -10,18 +10,21 @@ from sqlalchemy import *
 import re
 
 
-DBvalue = None
-report_file = None
 
-filehandler=open('/home/galaxy/galaxy/config/local_env.sh', 'r')
-for line in filehandler :
-    if re.search('export GOLDDB', line) :
-          DBvalue = line.split('"')[1]
+# If run with any argument, exit after creating config
+if len(sys.argv) > 1:
+    print "This script does not take any arguments!"
+    sys.exit()
 
+if os.environ['GOLDDB'] :
+    GOLDDB = os.environ['GOLDDB']
+else:
+    print "GOLDDB not accessible for MAS lifeportal usage report!"
+    sys.exit()
 
-if DBvalue is not None:
+if GOLDDB is not None:
 
-    application_db_engine = create_engine(DBvalue, encoding='utf-8')
+    application_db_engine = create_engine(GOLDDB, encoding='utf-8')
 
     metadata = MetaData(application_db_engine)
     connection = application_db_engine.connect()
