@@ -23,19 +23,19 @@ else:
     print "GALAXY_USER_EMAIL_LIST not found"
     sys.exit()
 
-
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Read (or create) config file
 config = ConfigParser.ConfigParser()
-if os.path.isfile('./collect_galaxy_emails.cfg'):
-    config.read('./collect_galaxy_emails.cfg')
+if os.path.isfile(dir_path+'/collect_galaxy_emails.cfg'):
+    config.read(dir_path+'/collect_galaxy_emails.cfg')
 else:
     print "No config file found. Creating new"
     config.add_section('db')
     config.set('db', 'uri', GALAXYDB_STRING)
     config.set('db', 'table_name', 'galaxy_user')  
 
-    with open('./collect_galaxy_emails.cfg', 'wb') as configfile:
+    with open(dir_path+'/collect_galaxy_emails.cfg', 'wb') as configfile:
         config.write(configfile)
 
 # If run with any argument, exit after creating config
@@ -56,7 +56,7 @@ for row in result:
     
 connection.close()
 
-print emails
+#print emails
 
 emails_file_local = EXTERNAL_DBS+'/galaxy_user_emails.txt'
     
