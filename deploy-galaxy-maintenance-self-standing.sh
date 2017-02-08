@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#For a Galaxy-independent installation, set the following env variables:
+# This script must be run _ONLY_ to install galaxy-maintenance-kit to a server with 
+# already installed galaxy. 
 
+#For a Galaxy-independent installation, set the following env variables:
 GALAXYTREE=/home/galaxy/galaxy
 GALAXYUSERHOME=/home/galaxy/
 
@@ -12,7 +14,17 @@ else
         exit 1
 fi
 
-git clone https://${USER}@bitbucket.usit.uio.no/scm/ft/galaxy-maintenance.git 
+cp deploy-galaxy-maintenance-self-standing.sh ..
+cd ..
+chmod u+x deploy-galaxy-maintenance-self-standing.sh
+
+if [ -e "galaxy-maintenance" ]; then
+    # clean the repo and clone again
+    rm -rf galaxy-maintenance
+    git clone https://${USER}@bitbucket.usit.uio.no/scm/ft/galaxy-maintenance.git
+else
+    git clone https://${USER}@bitbucket.usit.uio.no/scm/ft/galaxy-maintenance.git
+fi
 
 sudo chown -R galaxy:galaxy galaxy-maintenance
 sudo chown -R root:root galaxy-maintenance/scripts/galaxy_emails_management/
