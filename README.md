@@ -11,12 +11,12 @@ Galaxy user. This script is run as a cron job (owned by galaxy user).
     galaxy_emails_management/run_get_galaxy_user_emails.sh
 
 a script collecting the emails of all galaxy users. This script is 
-run as a cron job (owned by root). 
+run as a cron job (owned by galaxy user). 
 
     manipulate_project_allocations/run_manipulate_allocations_end_date.sh
 
 a script allowing to modify the end date of every galaxy project. 
-This script is run by root only.
+This script is run by galaxy user only.
 
     lifeportal_usage_report/run_lifeportal_usage_report.sh
 
