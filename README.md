@@ -30,7 +30,7 @@ a script displaying the resources used by the users with access to AIR, BIR and 
 
 ## 2. The scripts can be installed either separately (after the Galaxy installation) or as a part of the entire Galaxy installation process
 
-For a Galaxy-independent installation, set the following env variables in the file _deploy-galaxy-maintenance-self-standing.sh_: 
+For a Galaxy-independent installation, set the following env variables in the file _deploy-galaxy-maintenance-self-standing.sh_ and run it: 
 
 1. GALAXYTREE=/home/galaxy/galaxy
 2. GALAXYUSERHOME=/home/galaxy/
