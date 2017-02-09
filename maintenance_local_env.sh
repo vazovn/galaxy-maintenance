@@ -1,8 +1,10 @@
 
 # used in this script
 GALAXYTREE=
+export GALAXYTREE
 # used in the run-* script of the maintenance kit
 GALAXYUSERHOME=
+export GALAXYUSERHOME
 
 source ${GALAXYTREE}/config/local_env.sh
 source ${GALAXYTREE}/.venv/bin/activate
