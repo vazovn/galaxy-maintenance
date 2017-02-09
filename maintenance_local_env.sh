@@ -1,6 +1,11 @@
 
-source /home/galaxy/galaxy/config/local_env.sh
-source /home/galaxy/galaxy/.venv/bin/activate
+# used in this script
+GALAXYTREE=
+# used in the run-* script of the maintenance kit
+GALAXYUSERHOME=
+
+source ${GALAXYTREE}/config/local_env.sh
+source ${GALAXYTREE}/.venv/bin/activate
 
 ## used in ./additional_python_galaxy_packs/get_galaxy_user_emails.py
 export GALAXY_USER_EMAIL_LIST="/work/var/emaillist.lifeportal-users"
